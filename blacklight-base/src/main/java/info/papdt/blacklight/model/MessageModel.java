@@ -79,6 +79,36 @@ public class MessageModel implements Parcelable
 		};
 		
 	}
+
+	public static class VisibilityModel implements Parcelable {
+		//Json mapping fields
+		public int list_id;
+		public int type;
+
+		@Override
+		public int describeContents() {
+			return 0;
+		}
+
+		@Override
+		public void writeToParcel(Parcel dest, int flags) {
+			dest.writeInt(list_id);
+			dest.writeInt(type);
+		}
+
+		public static final Parcelable.Creator<VisibilityModel> CREATOR = new Parcelable.Creator<VisibilityModel>() {
+			public VisibilityModel createFromParcel(Parcel in) {
+				VisibilityModel ret = new VisibilityModel();
+				ret.list_id = in.readInt();
+				ret.type = in.readInt();
+				return ret;
+			}
+
+			public VisibilityModel[] newArray(int size) {
+				return new VisibilityModel[size];
+			}
+		};
+	}
 	
 	// Json mapping fields
 	public String created_at;
@@ -100,6 +130,7 @@ public class MessageModel implements Parcelable
 	public GeoModel geo;
 	public UserModel user;
 	public MessageModel retweeted_status; // if retweeted, this field will be the original post
+	public VisibilityModel visible;
 	
 	public int reposts_count;
 	public int comments_count;
@@ -157,6 +188,7 @@ public class MessageModel implements Parcelable
 		dest.writeParcelable(geo, flags);
 		dest.writeParcelable(user, flags);
 		dest.writeParcelable(retweeted_status, flags);
+		dest.writeParcelable(visible, flags);
 		dest.writeInt(reposts_count);
 		dest.writeInt(comments_count);
 		dest.writeInt(attitudes_count);
@@ -195,6 +227,7 @@ public class MessageModel implements Parcelable
 			ret.geo = in.readParcelable(GeoModel.class.getClassLoader());
 			ret.user = in.readParcelable(UserModel.class.getClassLoader());
 			ret.retweeted_status = in.readParcelable(MessageModel.class.getClassLoader());
+			ret.visible = in.readParcelable(VisibilityModel.class.getClassLoader());
 			ret.reposts_count = in.readInt();
 			ret.comments_count = in.readInt();
 			ret.attitudes_count = in.readInt();

@@ -62,6 +62,7 @@ import info.papdt.blacklight.support.Utility;
 import info.papdt.blacklight.support.Binded;
 import info.papdt.blacklight.ui.comments.CommentOnActivity;
 import info.papdt.blacklight.ui.comments.ReplyToActivity;
+import info.papdt.blacklight.ui.common.TintImageView;
 import info.papdt.blacklight.ui.statuses.RepostActivity;
 import info.papdt.blacklight.ui.statuses.SingleActivity;
 import info.papdt.blacklight.ui.statuses.StatusImageActivity;
@@ -237,6 +238,7 @@ public class WeiboAdapter extends HeaderViewAdapter<WeiboAdapter.ViewHolder> {
 		TextView attitudes = h.attitudes;
 		TextView retweet = h.retweets;
 		TextView comments = h.comments;
+		TintImageView locked = h.locked;
 
 		name.setText(msg.user != null ? msg.user.getName() : "");
 
@@ -258,6 +260,9 @@ public class WeiboAdapter extends HeaderViewAdapter<WeiboAdapter.ViewHolder> {
 			attitudes.setText(Utility.addUnitToInt(mContext, msg.attitudes_count));
 			retweet.setText(Utility.addUnitToInt(mContext, msg.reposts_count));
 			comments.setText(Utility.addUnitToInt(mContext, msg.comments_count));
+			if (msg.visible != null && msg.visible.type == 0) {
+				locked.setVisibility(View.GONE);
+			}
 		}
 
 		bindMultiPicLayout(h, msg, true);
@@ -496,6 +501,7 @@ public class WeiboAdapter extends HeaderViewAdapter<WeiboAdapter.ViewHolder> {
 		public TextView date;
 		public TextView retweets;
 		public TextView comments;
+		public TintImageView locked;
 		public TextView name;
 		public TextView from;
 		public TextView content;
@@ -535,6 +541,7 @@ public class WeiboAdapter extends HeaderViewAdapter<WeiboAdapter.ViewHolder> {
 			date = Utility.findViewById(v, R.id.weibo_date);
 			retweets = Utility.findViewById(v, R.id.weibo_retweet);
 			comments = Utility.findViewById(v, R.id.weibo_comments);
+			locked = Utility.findViewById(v, R.id.weibo_locked);
 			name = Utility.findViewById(v, R.id.weibo_name);
 			from = Utility.findViewById(v, R.id.weibo_from);
 			content = Utility.findViewById(v, R.id.weibo_content);

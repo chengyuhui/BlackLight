@@ -180,6 +180,15 @@
 			android:layout_height="wrap_content"
 			android:layout_marginRight="2dp"/>
 
+		<info.papdt.blacklight.ui.common.TintImageView
+			android:id="@+id/weibo_locked"
+			android:src="@android:drawable/ic_lock_lock"
+			android:scaleType="centerInside"
+			android:layout_width="18dp"
+			android:layout_height="18dp"
+			android:layout_marginRight="2dp"
+			app:tintColor="?attr/CardSubColor"/>
+
 	</LinearLayout>
 
 	<RelativeLayout
