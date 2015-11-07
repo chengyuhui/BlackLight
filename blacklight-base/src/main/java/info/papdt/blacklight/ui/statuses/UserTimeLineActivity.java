@@ -72,6 +72,7 @@ public class UserTimeLineActivity extends AbsActivity
 	private ImageView mCover;
 	private View mFollowingContainer;
 	private View mFollowersContainer;
+	private View mOtherInfoContainer;
 	private LinearLayout mLayoutFollowState;
 	private GenerousSlidingUpPanelLayout mSlide;
 
@@ -195,6 +196,9 @@ public class UserTimeLineActivity extends AbsActivity
 		} else if (id == R.id.group) {
 			new GroupLister().execute();
 			return true;
+		} else if (id == R.id.other_info) {
+			viewOtherInfo();
+			return true;
 		} else {
 			return super.onOptionsItemSelected(item);
 		}
@@ -217,6 +221,21 @@ public class UserTimeLineActivity extends AbsActivity
 		i.putExtra("isFriends", false);
 		i.setClass(this, FriendsActivity.class);
 		startActivity(i);
+	}
+
+	public static final String SEP = ": ";
+	public void viewOtherInfo() {
+		String message = "";
+		message += getString(R.string.uid) + SEP + mModel.id + "\n";
+		message += getString(R.string.location) + SEP + mModel.location + "\n";
+		message += getString(R.string.created_at) + SEP + mModel.created_at + "\n";
+		if (mModel.verified) {
+			message += getString(R.string.verified_reason) + SEP + mModel.verified_reason;
+		}
+		new AlertDialog.Builder(this)
+				.setTitle(R.string.other_info)
+				.setMessage(message)
+		.show();
 	}
 
 	@Binded

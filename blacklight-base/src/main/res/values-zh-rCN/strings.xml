@@ -255,5 +255,9 @@
 	<string name="expand_to_view">展开查看</string>
 	<string name="show_bigtext">显示详细的通知内容</string>
 	<string name="show_bigtext_sum">在通知中显示详细信息（仅对Android4.1+有效），可能导致额外的电量和流量消耗</string>
+	<string name="other_info">其他信息</string>
+	<string name="location">位置</string>
+	<string name="created_at">注册于</string>
+	<string name="verified_reason">认证原因</string>
 
 </resources>

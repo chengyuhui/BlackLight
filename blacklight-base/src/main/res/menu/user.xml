@@ -34,5 +34,10 @@
 		android:icon="@drawable/ic_action_group"
 		android:title="@string/change_group"
 		android:showAsAction="never"/>
-	
+
+	<item
+		android:id="@+id/other_info"
+		android:icon="@drawable/ic_info"
+		android:title="@string/other_info"
+		android:showAsAction="never"/>
 </menu>

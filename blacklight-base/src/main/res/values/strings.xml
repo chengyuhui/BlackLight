@@ -304,5 +304,10 @@
 	<string name="expand_to_view">Expand to view</string>
 	<string name="show_bigtext">Show notification details</string>
 	<string name="show_bigtext_sum">Show detailed information in notifications (Valid on Android 4.1+). May cause more power or traffic consumption.</string>
+	<string name="other_info">Other Info</string>
+	<string name="location">Location</string>
+	<string name="created_at">Created at</string>
+	<string name="verified_reason">Verified reason</string>
+	<string name="uid" translatable="false">UID</string>
 
 </resources>
