@@ -180,6 +180,15 @@
 			android:layout_height="wrap_content"
 			android:layout_marginRight="2dp"/>
 
+		<info.papdt.blacklight.ui.common.TintImageView
+			android:id="@+id/weibo_has_image"
+			android:src="@android:drawable/ic_menu_gallery"
+			android:scaleType="centerInside"
+			android:layout_width="18dp"
+			android:layout_height="18dp"
+			android:layout_marginRight="2dp"
+			app:tintColor="?attr/CardSubColor"
+			android:visibility="gone"/>
 	</LinearLayout>
 
 	<RelativeLayout

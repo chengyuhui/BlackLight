@@ -62,6 +62,7 @@ import info.papdt.blacklight.support.Utility;
 import info.papdt.blacklight.support.Binded;
 import info.papdt.blacklight.ui.comments.CommentOnActivity;
 import info.papdt.blacklight.ui.comments.ReplyToActivity;
+import info.papdt.blacklight.ui.common.TintImageView;
 import info.papdt.blacklight.ui.statuses.RepostActivity;
 import info.papdt.blacklight.ui.statuses.SingleActivity;
 import info.papdt.blacklight.ui.statuses.StatusImageActivity;
@@ -258,6 +259,9 @@ public class WeiboAdapter extends HeaderViewAdapter<WeiboAdapter.ViewHolder> {
 			attitudes.setText(Utility.addUnitToInt(mContext, msg.attitudes_count));
 			retweet.setText(Utility.addUnitToInt(mContext, msg.reposts_count));
 			comments.setText(Utility.addUnitToInt(mContext, msg.comments_count));
+			if (msg.pic_urls.size() > 0) {
+				h.has_image.setVisibility(View.VISIBLE);
+			}
 		}
 
 		bindMultiPicLayout(h, msg, true);
@@ -496,6 +500,7 @@ public class WeiboAdapter extends HeaderViewAdapter<WeiboAdapter.ViewHolder> {
 		public TextView date;
 		public TextView retweets;
 		public TextView comments;
+		public TintImageView has_image;
 		public TextView name;
 		public TextView from;
 		public TextView content;
@@ -535,6 +540,7 @@ public class WeiboAdapter extends HeaderViewAdapter<WeiboAdapter.ViewHolder> {
 			date = Utility.findViewById(v, R.id.weibo_date);
 			retweets = Utility.findViewById(v, R.id.weibo_retweet);
 			comments = Utility.findViewById(v, R.id.weibo_comments);
+			has_image = Utility.findViewById(v, R.id.weibo_has_image);
 			name = Utility.findViewById(v, R.id.weibo_name);
 			from = Utility.findViewById(v, R.id.weibo_from);
 			content = Utility.findViewById(v, R.id.weibo_content);
